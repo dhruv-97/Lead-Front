@@ -35,8 +35,8 @@
     </div>
     <div class="row">
         <div id="todolist-container" class="col-12">
-            <ul class="list-group" id="list-todos">
-              <li *ngFor="leads">
+            <ul class="list-group" id="list-todos" *ngFor="let lead of leads">
+              <li>{{lead.name}}</li>  
             </ul>
         </div>
     </div>

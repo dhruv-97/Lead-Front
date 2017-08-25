@@ -31,10 +31,10 @@ export class LeadService {
     return this.http
       .post(this.base + 'leads', lead, {headers: this.headers})
       .toPromise()
-      .then(res => res.json())
+      .then(res => res)
       .catch(this.handleError);
   }
-  getLeads(): Promise<Lead>{
+  getLeads(): Promise<[Lead]>{
      return this.http
       .get(this.base + 'leads', {headers: this.headers})
       .toPromise()

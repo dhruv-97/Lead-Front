@@ -5,46 +5,46 @@
             <form>
                 <div class="form-group">
                     <label for="costumerName">Name</label>
-                    <input type="text" class="form-control" id="costumerName" aria-describedby="emailHelp" placeholder="Enter Name">
+                    <input type="text" class="form-control" id="costumerName" aria-describedby="emailHelp" placeholder="Enter Name" [ngModelOptions]="{standalone:true}" [(ngModel)]="lead.name">
                 </div>
                 <div class="form-group">
                     <label for="companyName">Company Name</label>
-                    <input type="text" class="form-control" id="companyName" aria-describedby="emailHelp" placeholder="Enter Company Name">
+                    <input type="text" class="form-control" id="companyName" aria-describedby="emailHelp" placeholder="Enter Company Name" [ngModelOptions]="{standalone:true}" [(ngModel)]="lead.company">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [ngModelOptions]="{standalone:true}" [(ngModel)]="lead.email">
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="form-group">
                     <label for="phoneNumber">Phone Number</label>
-                    <input type="number" class="form-control" id="phoneNumber" aria-describedby="emailHelp" placeholder="Enter Phone Number">
+                    <input type="number" class="form-control" id="phoneNumber" aria-describedby="emailHelp" placeholder="Enter Phone Number" [ngModelOptions]="{standalone:true}" [(ngModel)]="lead.phone">
                 </div>
                 <div class="form-group">
                     <label for="requirments1">Requirments</label>
-                    <input type="text" class="form-control" id="requirments1" aria-describedby="emailHelp" placeholder="Enter Requirments">
+                    <input type="text" class="form-control" id="requirments1" aria-describedby="emailHelp" placeholder="Enter Requirments" [ngModelOptions]="{standalone:true}" [(ngModel)]="lead.requirements[0]">
                 </div>
-                <input type="text" class="form-control" id="requirments2" aria-describedby="emailHelp" placeholder="Enter Requirments">
+                <input type="text" class="form-control" id="requirments2" aria-describedby="emailHelp" placeholder="Enter Requirments" [ngModelOptions]="{standalone:true}" [(ngModel)]="lead.requirements[1]">
                 <br>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-secondary active">
-                        <input type="radio" name="options" id="option1" autocomplete="off" checked> CLOSED
+                        <input type="radio" name="options" id="option1" autocomplete="off" checked (click) = "changeClosed(true)"> CLOSED
                     </label>
                     <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option2" autocomplete="off"> UNCLOSED
+                        <input type="radio" name="options" id="option2" autocomplete="off" (click) = "changeClosed(false)"> UNCLOSED
                     </label>
                 </div>
                 <br><br>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-secondary active">
-                        <input type="radio" name="options" id="option3" autocomplete="off" checked> QUOTED
+                        <input type="radio" name="options" id="option3" autocomplete="off" checked (click) ="changeQuote(true)"> QUOTED
                     </label>
                     <label class="btn btn-secondary">
-                        <input type="radio" name="options" id="option4" autocomplete="off"> UNQUOTED
+                        <input type="radio" name="options" id="option4" autocomplete="off" (click) ="changeQuote(false)"> UNQUOTED
                     </label>
                 </div>
-                <BR><br>
-                <button type="submit" class="btn btn-primary">Add Lead</button><br><br>
+                <br><br>
+                <button type="submit" class="btn btn-primary" (click)="postLead()">Add Lead</button><br><br>
             </form>
 
         </div>
